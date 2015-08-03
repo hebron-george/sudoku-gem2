@@ -1,17 +1,15 @@
 class SudokuBuilder
-  module Presenter
 
-    def pretty
-      @sud.each_with_index do |row|
-        print row.join(' ')
-        puts ' '
-      end
+  def pretty
+    @sud.each_with_index do |row|
+      print row.join(' ')
       puts ' '
     end
-
-    def to_a
-      @sud
-    end
-    
+    puts ' '
   end
+
+  def to_a
+    @sud
+  end
+
 end
