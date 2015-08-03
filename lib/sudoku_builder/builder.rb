@@ -5,12 +5,7 @@ class SudokuBuilder
     loop do
       return @sud if @loc == [9,0,0]
 
-      poss = []
-      (1..9).each do |i|
-        if check?(i)
-          poss << i
-        end
-      end
+      poss = get_possibilities
 
       if !poss.empty?
         write(poss.sample)

@@ -75,22 +75,8 @@ class SudokuBuilder
           row.include?(val) || used.include?(val) )
   end
 
-  def parse_for_solve(puzzle)
-    flattened = puzzle.flatten
-
-    if flattened.count == 81
-
-      @loc = [0,0,0] ; @sud = blank
-      flattened.each do |val|
-      if val and val <= 9 and val >= 1
-        write(val)
-      end
-        increment
-      end
-
-    else
-      raise PuzzleFormatError, 'Must have exactly 81 spots in the array.'
-    end
+  def get_possibilities
+    [1,2,3,4,5,6,7,8,9] - used - (grid + column + row).uniq
   end
 
 end
