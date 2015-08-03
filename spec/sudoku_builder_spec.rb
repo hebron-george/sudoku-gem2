@@ -18,7 +18,7 @@ describe SudokuBuilder do
 
   it 'can poke holes in a puzzle' do
     puzzle = SudokuBuilder.create
-    expect(puzzle.hard.include?(nil)).to eq(true)
+    expect(puzzle.hard.to_flat_a.include?(nil)).to eq(true)
   end
 
   it 'can solve a hard puzzle' do
@@ -32,6 +32,16 @@ describe SudokuBuilder do
     ]
     puzzle = SudokuBuilder.solve(hard)
     expect(puzzle.valid?).to eq(true)
+  end
+
+  it 'can pretty print' do
+    puzzle = SudokuBuilder.create
+    puzzle.pretty_print
+  end
+
+  it 'can pretty print a hard puzzle' do
+    puzzle = SudokuBuilder.create
+    puzzle.hard.pretty_print
   end
 
 end

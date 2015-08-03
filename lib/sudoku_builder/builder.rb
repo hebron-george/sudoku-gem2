@@ -24,11 +24,11 @@ class SudokuBuilder
   end
 
   def poke(num)
-    sud = to_flat_a
     num.times do
-      sud[rand(0..80)] = nil
+      @loc = [rand(0..8),rand(0..2),rand(0..2)]
+      only_write(nil)
     end
-    sud
+    return self
   end
 
   def hard

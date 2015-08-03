@@ -9,6 +9,10 @@ class SudokuBuilder
     @used[@loc[0]][@loc[1]][@loc[2]] << val unless used.include?(val)
   end
 
+  def only_write(val)
+    @sud[@loc[0]][@loc[1]][@loc[2]] = val
+  end
+
   def value
     @sud[@loc[0]][@loc[1]][@loc[2]]
   end
