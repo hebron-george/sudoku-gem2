@@ -15,4 +15,10 @@ describe SudokuBuilder do
     puzzle = SudokuBuilder.solve(arr)
     expect(puzzle.valid?).to eq(true)
   end
+
+  it 'can poke holes in a puzzle' do
+    puzzle = SudokuBuilder.create
+    expect(puzzle.hard.include?(nil)).to eq(true)
+  end
+
 end

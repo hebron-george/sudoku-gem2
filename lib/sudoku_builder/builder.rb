@@ -28,6 +28,19 @@ class SudokuBuilder
     num.times do
       sud[rand(0..80)] = nil
     end
+    sud
+  end
+
+  def hard
+    poke(65)
+  end
+
+  def medium
+    poke(50)
+  end
+
+  def easy
+    poke(35)
   end
 
 end
