@@ -8,6 +8,14 @@ class SudokuBuilder
     @sud.flatten
   end
 
+  def to_rows
+    rows = []
+    @sud.each do |row|
+      rows << row.flatten
+    end
+    return rows
+  end
+
   def pretty_print
     b = []
     to_flat_a.each do |i|
