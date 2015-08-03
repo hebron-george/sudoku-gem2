@@ -44,4 +44,9 @@ describe SudokuBuilder do
     puzzle.hard.pretty_print
   end
 
+  it 'can pretty print an easy puzzle' do
+    puzzle = SudokuBuilder.create
+    puzzle.easy.pretty_print
+  end
+
 end
