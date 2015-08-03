@@ -11,7 +11,8 @@ describe SudokuBuilder do
   end
 
   it 'can solve a puzzle' do
-    puzzle = SudokuBuilder.solve([])
+    arr = [] ; 81.times { arr << nil }
+    puzzle = SudokuBuilder.solve(arr)
     expect(puzzle.valid?).to eq(true)
   end
 end

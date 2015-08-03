@@ -12,4 +12,8 @@ class SudokuBuilder
     @sud
   end
 
+  def to_flat_a
+    @sud.flatten
+  end
+
 end
