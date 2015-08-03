@@ -49,4 +49,9 @@ describe SudokuBuilder do
     puzzle.easy.pretty_print
   end
 
+  it 'can print out an array' do
+    puzzle = SudokuBuilder.create
+    print puzzle.to_flat_a
+  end
+
 end

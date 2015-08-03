@@ -1,34 +1,76 @@
 # SudokuBuilder
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sudoku_builder`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
 ```ruby
-gem 'sudoku_builder'
+$ gem install sudoku_builder
+$ irb
+
+> puzzle = SudokuBuilder.create
+> puzzle.pretty_print
+ +-----------------------------+
+ | 7  9  2 | 5  1  4 | 8  6  3 |
+ | 3  4  1 | 7  8  6 | 2  5  9 |
+ | 5  6  8 | 3  9  2 | 7  1  4 |
+ +-----------------------------+
+ | 4  5  7 | 6  3  8 | 9  2  1 |
+ | 6  1  9 | 2  5  7 | 4  3  8 |
+ | 2  8  3 | 1  4  9 | 6  7  5 |
+ +-----------------------------+
+ | 9  7  5 | 4  2  1 | 3  8  6 |
+ | 8  3  6 | 9  7  5 | 1  4  2 |
+ | 1  2  4 | 8  6  3 | 5  9  7 |
+ +-----------------------------+
+
+> puzzle.hard.pretty_print
+ +-----------------------------+
+ | _  2  6 | _  _  _ | _  8  _ |
+ | _  _  _ | _  2  _ | 1  3  7 |
+ | _  _  _ | 9  _  _ | 4  _  _ |
+ +-----------------------------+
+ | 1  5  _ | _  _  7 | _  _  _ |
+ | 9  4  2 | _  _  _ | _  _  _ |
+ | 6  _  _ | 1  4  _ | _  _  2 |
+ +-----------------------------+
+ | _  _  _ | 4  7  2 | 6  1  9 |
+ | _  6  4 | _  _  _ | _  5  3 |
+ | 2  _  _ | _  _  6 | 7  _  8 |
+ +-----------------------------+
+
+> puzzle = SudokuBuilder.create
+> puzzle.easy.pretty_print
+ +-----------------------------+
+ | 8  6  _ | 9  2  5 | _  _  4 |
+ | _  1  _ | _  _  _ | 5  2  7 |
+ | 2  4  5 | 7  _  3 | 9  8  _ |
+ +-----------------------------+
+ | 6  _  4 | _  _  1 | 7  5  9 |
+ | _  _  1 | 3  7  _ | _  6  8 |
+ | _  7  8 | 5  6  _ | 2  1  3 |
+ +-----------------------------+
+ | _  8  3 | 4  _  2 | 6  9  1 |
+ | _  _  _ | _  3  7 | 8  _  _ |
+ | 4  5  6 | 1  _  _ | 3  7  2 |
+ +-----------------------------+
+
+> to_solve = SudokuBuilder.create.hard.to_flat_a
+> solved   = SudokuBuilder.solve(to_solve).pretty_print
+ +-----------------------------+
+ | 3  2  1 | 9  8  4 | 6  5  7 |
+ | 7  8  4 | 6  3  5 | 1  2  9 |
+ | 9  5  6 | 7  1  2 | 8  4  3 |
+ +-----------------------------+
+ | 8  1  7 | 4  6  9 | 5  3  2 |
+ | 6  3  2 | 1  5  7 | 9  8  4 |
+ | 4  9  5 | 8  2  3 | 7  6  1 |
+ +-----------------------------+
+ | 5  7  9 | 2  4  8 | 3  1  6 |
+ | 2  6  3 | 5  7  1 | 4  9  8 |
+ | 1  4  8 | 3  9  6 | 2  7  5 |
+ +-----------------------------+
+
+> puzzle = SudokuBuilder.create
+> print puzzle.to_flat_a
+# an array from 0..80 with each value of the sudoku
+[1, 7, 8, 6, 5, 3, 4, 2, 9, 4, 5, 6, 1, 2, 9, 3, 8, 7, 9, 3, 2, 8, 7, 4, 6, 5, 1, 2, 6, 5, 4, 9, 8, 7, 1, 3, 3, 1, 7, 5, 6, 2, 9, 4, 8, 8, 4, 9, 3, 1, 7, 2, 6, 5, 5, 9, 1, 7, 4, 6, 8, 3, 2, 6, 2, 3, 9, 8, 1, 5, 7, 4, 7, 8, 4, 2, 3, 5, 1, 9, 6]
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install sudoku_builder
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
