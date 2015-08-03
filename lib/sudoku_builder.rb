@@ -21,7 +21,8 @@ class SudokuBuilder
 
   def self.solve(puzzle)
     sudoku = SudokuBuilder.new
-    sudoku.solve(puzzle)
+    sudoku.parse_for_solve(puzzle)
+    sudoku.solve
     sudoku
   end
 end

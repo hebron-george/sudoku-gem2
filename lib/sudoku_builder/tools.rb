@@ -57,4 +57,35 @@ class SudokuBuilder
     ]
   end
 
+  def valid?
+    @loc = [0,0,0]
+    validity = []
+    loop do
+      if check?(value)
+        return false
+      end
+      increment
+      break if @loc == [9,0,0]
+    end
+    return true
+  end
+
+  def check?(val)
+    !(grid.include?(val) || column.include?(val) ||
+          row.include?(val) || used.include?(val) )
+  end
+
+  def parse_for_solve(puzzle)
+    flattened = puzzle.flatten
+    if flattened.count == 81
+      @loc = [0,0,0] ; @sud = blank
+      flattened.each do |val|
+        write(val) if val
+        increment
+      end
+    else
+      raise PuzzleFormatError, 'Must have exactly 81 spots in the array.'
+    end
+  end
+
 end
