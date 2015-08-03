@@ -70,12 +70,12 @@ class SudokuBuilder
   end
 
   def check?(val)
-    if val.class != Array
-      val = [val]
-    elsif val == nil
+    if val == nil
       return false
     elsif val.class == Integer and (val < 1 or val > 9)
       return false
+    elsif val.class != Array
+      val = [val]
     end
     (grid - val).include?(val) || (column - val).include?(val) || (row - val).include?(val)
   end
