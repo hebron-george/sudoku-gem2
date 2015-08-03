@@ -77,12 +77,15 @@ class SudokuBuilder
 
   def parse_for_solve(puzzle)
     flattened = puzzle.flatten
+
     if flattened.count == 81
+
       @loc = [0,0,0] ; @sud = blank
       flattened.each do |val|
         write(val) if val
         increment
       end
+      
     else
       raise PuzzleFormatError, 'Must have exactly 81 spots in the array.'
     end
