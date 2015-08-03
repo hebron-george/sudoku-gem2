@@ -60,7 +60,6 @@ class SudokuBuilder
   def valid?
     @loc = [0,0,0]
     loop do
-      puts value
       if check?(value)
         return false
       end

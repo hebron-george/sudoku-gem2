@@ -8,6 +8,7 @@ describe SudokuBuilder do
   it 'can build a puzzle' do
     puzzle = SudokuBuilder.create
     expect(puzzle.valid?).to eq(true)
+    expect(puzzle.to_flat_a.inject(:+)).to eq(405)
   end
 
   it 'can solve a blank puzzle' do
@@ -41,7 +42,9 @@ describe SudokuBuilder do
 
   it 'can pretty print a hard puzzle' do
     puzzle = SudokuBuilder.create
-    puzzle.hard.pretty_print
+    puzzle.hard
+    expect(puzzle.valid?).to eq(false)
+    puzzle.pretty_print
   end
 
   it 'can pretty print an easy puzzle' do
