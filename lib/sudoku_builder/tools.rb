@@ -82,10 +82,12 @@ class SudokuBuilder
 
       @loc = [0,0,0] ; @sud = blank
       flattened.each do |val|
-        write(val) if val
+      if val and val <= 9 and val >= 1
+        write(val)
+      end
         increment
       end
-      
+
     else
       raise PuzzleFormatError, 'Must have exactly 81 spots in the array.'
     end

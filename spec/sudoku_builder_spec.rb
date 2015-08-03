@@ -16,6 +16,10 @@ describe SudokuBuilder do
     expect(puzzle.valid?).to eq(true)
   end
 
+  it 'can poke holes in a puzzle' do
+    puzzle = SudokuBuilder.create
+    expect(puzzle.hard.include?(nil)).to eq(true)
+  end
 
   it 'can solve a hard puzzle' do
     hard = [
@@ -28,11 +32,6 @@ describe SudokuBuilder do
     ]
     puzzle = SudokuBuilder.solve(hard)
     expect(puzzle.valid?).to eq(true)
-  end
-
-  it 'can poke holes in a puzzle' do
-    puzzle = SudokuBuilder.create
-    expect(puzzle.hard.include?(nil)).to eq(true)
   end
 
 end
