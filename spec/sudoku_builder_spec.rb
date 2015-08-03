@@ -35,6 +35,31 @@ describe SudokuBuilder do
     expect(puzzle.valid?).to eq(true)
   end
 
+  it 'says a hard puzzle is false' do
+    puzzle = SudokuBuilder.create.hard
+    expect(puzzle.valid?).to eq(false)
+  end
+
+  it 'says an easy puzzle is false' do
+    puzzle = SudokuBuilder.create.easy
+    expect(puzzle.valid?).to eq(false)
+  end
+
+  it 'says a medium puzzle is false' do
+    puzzle = SudokuBuilder.create.medium
+    expect(puzzle.valid?).to eq(false)
+  end
+
+  it 'pokes an arbitrary number of holes' do
+    puzzle = SudokuBuilder.create.poke(20)
+    expect(puzzle.valid?).to eq(false)
+  end
+
+  it 'can print out an array' do
+    puzzle = SudokuBuilder.create
+    print puzzle.to_flat_a
+  end
+
   it 'can pretty print' do
     puzzle = SudokuBuilder.create
     puzzle.pretty_print
@@ -43,18 +68,12 @@ describe SudokuBuilder do
   it 'can pretty print a hard puzzle' do
     puzzle = SudokuBuilder.create
     puzzle.hard
-    expect(puzzle.valid?).to eq(false)
     puzzle.pretty_print
   end
 
   it 'can pretty print an easy puzzle' do
     puzzle = SudokuBuilder.create
     puzzle.easy.pretty_print
-  end
-
-  it 'can print out an array' do
-    puzzle = SudokuBuilder.create
-    print puzzle.to_flat_a
   end
 
 end
