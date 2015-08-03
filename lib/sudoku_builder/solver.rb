@@ -32,7 +32,11 @@ class SudokuBuilder
   end
 
   def parse_for_solve(puzzle)
-    flattened = puzzle.flatten
+    if puzzle.class == SudokuBuilder
+      flattened = puzzle.to_a.flatten
+    else
+      flattened = puzzle.flatten
+    end
 
     if flattened.count == 81
 

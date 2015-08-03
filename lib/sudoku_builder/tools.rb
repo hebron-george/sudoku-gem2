@@ -59,8 +59,8 @@ class SudokuBuilder
 
   def valid?
     @loc = [0,0,0]
-    validity = []
     loop do
+      puts value
       if check?(value)
         return false
       end
@@ -71,8 +71,14 @@ class SudokuBuilder
   end
 
   def check?(val)
-    !(grid.include?(val) || column.include?(val) ||
-          row.include?(val) || used.include?(val) )
+    if val.class != Array
+      val = [val]
+    elsif val == nil
+      return false
+    elsif val.class == Integer and (val < 1 or val > 9)
+      return false
+    end
+    (grid - val).include?(val) || (column - val).include?(val) || (row - val).include?(val)
   end
 
   def get_possibilities
