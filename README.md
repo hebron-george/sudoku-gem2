@@ -50,7 +50,7 @@ $ irb
  | 4  5  6 | 1  _  _ | 3  7  2 |
  +-----------------------------+
 
-> to_solve = SudokuBuilder.create.hard.to_flat_a
+> to_solve = SudokuBuilder.create.hard.to_a
 > solved   = SudokuBuilder.solve(to_solve).pretty_print
  +-----------------------------+
  | 3  2  1 | 9  8  4 | 6  5  7 |
