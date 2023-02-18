@@ -6,7 +6,7 @@ class SudokuBuilder
     loop do
       return @sud if @loc == [9,0,0]
 
-      if value.class == Fixnum
+      if value.class.is_a?(Integer)
 
         if up == true
           increment
